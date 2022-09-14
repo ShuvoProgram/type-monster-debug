@@ -27,7 +27,7 @@ const typeController = (e) => {
   // Handle backspace press
   if (newLetter == "Backspace") {
     userText = userText.slice(0, userText.length - 1);
-    return display.removeChild(display.lastChild);
+    return display.removeChild(display.lastElementChild);
   }
 
   // these are the valid character we are allowing to type
@@ -79,10 +79,11 @@ const gameOver = () => {
   // make it inactive
   display.classList.add("inactive");
   // show result
+  // bugfix-4 implement ++errorCount
   resultModal.innerHTML += `
     <h1>Finished!</h1>
     <p>You took: <span class="bold">${timeTaken}</span> seconds</p>
-    <p>You made <span class="bold red">${errorCount}</span> mistakes</p>
+    <p>You made <span class="bold red">${++errorCount}</span> mistakes</p>
     <button onclick="closeModal()">Close</button>
   `;
 
@@ -114,6 +115,7 @@ const start = () => {
     if (count == 0) {
       // -------------- START TYPING -----------------
       document.addEventListener("keydown", typeController);
+      // bugfix-3 --- replace flex to none
       countdownOverlay.style.display = "none";
       display.classList.remove("inactive");
 
@@ -133,7 +135,7 @@ displayHistory();
 // Show typing time spent
 setInterval(() => {
   const currentTime = new Date().getTime();
-  const timeSpent = (currentTime - startTime) / 1000;
+  const timeSpent = ((currentTime - startTime) / 1000).toFixed(2);
 
 
   document.getElementById("show-time").innerHTML = `${startTime ? timeSpent : 0} seconds`;
