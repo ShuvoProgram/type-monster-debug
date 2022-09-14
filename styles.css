@@ -61,10 +61,11 @@ body {
   color: white;
   display: none;
 }
+/* bugfix-6 result position */
 #result {
   position: fixed;
-  top: 10%; 
-  left: 10%;
+  top: 40%; 
+  left: 50%;
   transform: translate(-50%, -50%);
   height: 250px;
   width: 400px;
@@ -95,6 +96,7 @@ body {
 }
 .hidden {
   display: none;
+  
 }
 .title {
   text-align: center;
