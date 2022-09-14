@@ -94,7 +94,7 @@ body {
 .inactive {
   border: 2px solid white !important;
 }
-.hidden {
+.hiddens {
   display: none;
   
 }
@@ -190,5 +190,49 @@ button {
   }
   .card {
     flex-direction: column;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+#histories {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 10px;
+  row-gap: 10px;
+}
+.card{
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+#histories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .card {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+#histories {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 10px;
+    row-gap: 10px;
+  }
+
+  .card {
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
   }
 }
